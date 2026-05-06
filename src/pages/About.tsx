@@ -7,15 +7,28 @@ export function About() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blush-100 via-cream-50 to-cream-50" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-mauve-300/20 via-bg to-bg"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute -top-40 -right-32 -z-10 h-[500px] w-[500px] rounded-full bg-mauve-400/30 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute -bottom-32 -left-24 -z-10 h-[420px] w-[420px] rounded-full bg-blush-400/25 blur-3xl"
+        />
         <div className="container-page pt-20 md:pt-28 pb-12 md:pb-16">
           <div className="max-w-3xl fade-up">
-            <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
+            <p className="text-xs uppercase tracking-[0.28em] text-mauve-500 glow-text">
               About
             </p>
-            <h1 className="mt-5 text-5xl md:text-7xl leading-[1.05]">
+            <h1 className="mt-5 text-5xl md:text-7xl leading-[1.05] glow-text">
               Hi, I&rsquo;m{" "}
-              <span className="italic font-light text-mauve-700">Giovana</span>
+              <span className="italic font-light text-mauve-500">
+                Giovana
+              </span>
               .
             </h1>
             <p className="mt-6 text-xl text-ink-soft leading-relaxed">
@@ -31,7 +44,7 @@ export function About() {
         <div className="grid md:grid-cols-12 gap-8 items-end">
           <div className="md:col-span-7">
             <Placeholder
-              alt="Editorial placeholder portrait of Giovana Tonon working on a content shoot, soft natural light."
+              alt="Editorial placeholder portrait of Giovana Tonon working on a content shoot, dramatic light."
               tone="mauve"
               ratio="landscape"
               label="Giovana on set"
@@ -39,7 +52,7 @@ export function About() {
           </div>
           <div className="md:col-span-5">
             <Placeholder
-              alt="Behind-the-scenes placeholder image of camera, tripod and pink prop styling."
+              alt="Behind-the-scenes placeholder image of camera, tripod and prop styling."
               tone="blush"
               ratio="portrait"
               label="The studio"
@@ -53,9 +66,7 @@ export function About() {
         title={
           <>
             Considered content. <br />
-            <span className="italic text-mauve-700">
-              Consistent presence.
-            </span>
+            <span className="italic text-mauve-500">Consistent presence.</span>
           </>
         }
       >
@@ -68,9 +79,10 @@ export function About() {
               becomes the most honest place for a brand to live.
             </p>
             <p>
-              My specialties are <span className="text-ink">social media management</span>
-              {" "}and <span className="text-ink">organic growth</span> — which
-              is just a way of saying I care about the result, not just the
+              My specialties are{" "}
+              <span className="text-ink">social media management</span> and{" "}
+              <span className="text-ink">organic growth</span> — which is
+              just a way of saying I care about the result, not just the
               aesthetic. Both matter.
             </p>
           </div>
@@ -89,10 +101,10 @@ export function About() {
         </div>
       </Section>
 
-      <Section className="bg-blush-50/60 rounded-[3rem] mx-3 md:mx-8">
+      <Section className="bg-surface/60 rounded-[3rem] mx-3 md:mx-8 border border-line">
         <div className="grid md:grid-cols-3 gap-8">
           <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
+            <p className="text-xs uppercase tracking-[0.22em] text-mauve-500">
               What I do
             </p>
             <ul className="mt-5 space-y-3 text-lg">
@@ -104,7 +116,7 @@ export function About() {
             </ul>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
+            <p className="text-xs uppercase tracking-[0.22em] text-mauve-500">
               Tools of the trade
             </p>
             <ul className="mt-5 space-y-3 text-lg">
@@ -115,7 +127,7 @@ export function About() {
             </ul>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
+            <p className="text-xs uppercase tracking-[0.22em] text-mauve-500">
               Better together if&hellip;
             </p>
             <ul className="mt-5 space-y-3 text-lg text-ink-soft">
@@ -128,17 +140,27 @@ export function About() {
       </Section>
 
       <Section className="!pt-12">
-        <div className="rounded-[2.5rem] bg-gradient-to-br from-mauve-200 via-blush-200 to-cream-100 p-10 md:p-16 text-center shadow-warm">
-          <h2 className="text-4xl md:text-5xl leading-tight">
-            Want to <span className="italic">work together</span>?
-          </h2>
-          <p className="mt-4 text-ink-soft max-w-xl mx-auto">
-            I take on a small number of partners at a time so each one gets
-            real attention.
-          </p>
-          <Link to="/contact" className="btn btn-primary mt-8">
-            Get in touch <ArrowRight size={16} />
-          </Link>
+        <div className="relative rounded-[2.5rem] overflow-hidden p-10 md:p-16 text-center border border-line bg-surface">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-br from-mauve-400/30 via-mauve-300/15 to-blush-400/30"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute -top-40 -left-32 h-[420px] w-[420px] rounded-full bg-mauve-400/40 blur-3xl"
+          />
+          <div className="relative">
+            <h2 className="text-4xl md:text-5xl leading-tight glow-text">
+              Want to <span className="italic">work together</span>?
+            </h2>
+            <p className="mt-4 text-ink-soft max-w-xl mx-auto">
+              I take on a small number of partners at a time so each one
+              gets real attention.
+            </p>
+            <Link to="/contact" className="btn btn-primary mt-8">
+              Get in touch <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </Section>
     </>

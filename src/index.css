@@ -1,41 +1,52 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Fraunces", "Playfair Display", ui-serif, Georgia, serif;
 
-  --color-cream-50: oklch(99% 0.012 85);
-  --color-cream-100: oklch(97.5% 0.018 80);
-  --color-cream-200: oklch(95% 0.025 78);
+  /* Dark / sexy / neon palette in oklch */
 
-  --color-blush-50: oklch(98% 0.012 18);
-  --color-blush-100: oklch(95% 0.025 20);
-  --color-blush-200: oklch(91% 0.045 18);
-  --color-blush-300: oklch(86% 0.07 17);
-  --color-blush-400: oklch(80% 0.1 15);
-  --color-blush-500: oklch(74% 0.13 12);
-  --color-blush-600: oklch(66% 0.15 10);
-  --color-blush-700: oklch(56% 0.14 8);
+  --color-bg: oklch(11% 0.04 332);
+  --color-surface: oklch(15% 0.05 332);
+  --color-surface-2: oklch(20% 0.06 332);
+  --color-line: oklch(28% 0.06 332);
 
-  --color-mauve-50: oklch(97% 0.018 320);
-  --color-mauve-100: oklch(94% 0.03 322);
-  --color-mauve-200: oklch(89% 0.05 325);
-  --color-mauve-300: oklch(82% 0.08 328);
-  --color-mauve-400: oklch(74% 0.11 330);
-  --color-mauve-500: oklch(66% 0.13 332);
-  --color-mauve-600: oklch(56% 0.13 334);
-  --color-mauve-700: oklch(46% 0.11 335);
-  --color-mauve-800: oklch(34% 0.08 335);
-  --color-mauve-900: oklch(24% 0.05 335);
+  /* Cream stays as the high-contrast text color on dark surfaces */
+  --color-cream-50: oklch(96% 0.012 85);
+  --color-cream-100: oklch(92% 0.018 85);
+  --color-cream-200: oklch(86% 0.025 78);
 
-  --color-ink: oklch(22% 0.03 330);
-  --color-ink-soft: oklch(38% 0.04 332);
-  --color-ink-muted: oklch(54% 0.04 332);
+  --color-blush-50: oklch(28% 0.06 18);
+  --color-blush-100: oklch(36% 0.10 18);
+  --color-blush-200: oklch(50% 0.16 14);
+  --color-blush-300: oklch(62% 0.20 12);
+  --color-blush-400: oklch(72% 0.22 12);
+  --color-blush-500: oklch(78% 0.20 14);
+  --color-blush-600: oklch(82% 0.16 16);
+  --color-blush-700: oklch(88% 0.10 18);
 
-  --shadow-soft: 0 1px 2px oklch(50% 0.05 330 / 0.04),
-    0 8px 24px oklch(50% 0.05 330 / 0.06);
-  --shadow-warm: 0 1px 2px oklch(50% 0.1 20 / 0.06),
-    0 12px 40px oklch(50% 0.1 20 / 0.08);
+  --color-mauve-50: oklch(20% 0.06 332);
+  --color-mauve-100: oklch(28% 0.10 332);
+  --color-mauve-200: oklch(38% 0.16 332);
+  --color-mauve-300: oklch(48% 0.22 332);
+  --color-mauve-400: oklch(58% 0.26 332);
+  --color-mauve-500: oklch(66% 0.27 332);
+  --color-mauve-600: oklch(74% 0.22 332);
+  --color-mauve-700: oklch(82% 0.16 332);
+  --color-mauve-800: oklch(88% 0.10 332);
+  --color-mauve-900: oklch(94% 0.05 332);
+
+  --color-ink: oklch(96% 0.012 85);
+  --color-ink-soft: oklch(82% 0.04 332);
+  --color-ink-muted: oklch(64% 0.06 332);
+
+  --shadow-soft: 0 1px 2px oklch(0% 0 0 / 0.4),
+    0 8px 24px oklch(0% 0 0 / 0.5);
+  --shadow-warm: 0 1px 2px oklch(0% 0 0 / 0.4),
+    0 14px 60px oklch(58% 0.27 332 / 0.4);
+  --shadow-glow: 0 0 60px oklch(66% 0.27 332 / 0.45),
+    0 0 120px oklch(72% 0.22 18 / 0.25);
 
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -43,10 +54,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    background-color: var(--color-bg);
   }
 
   body {
-    background-color: var(--color-cream-50);
+    background-color: var(--color-bg);
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
@@ -55,8 +67,8 @@
   }
 
   ::selection {
-    background-color: var(--color-blush-200);
-    color: var(--color-ink);
+    background-color: var(--color-mauve-500);
+    color: var(--color-cream-50);
   }
 
   h1,
@@ -96,25 +108,41 @@
   }
 
   .btn-primary {
-    background-color: var(--color-mauve-700);
+    background:
+      linear-gradient(135deg, var(--color-mauve-400), var(--color-blush-300));
     color: var(--color-cream-50);
+    box-shadow: 0 0 0 1px oklch(100% 0 0 / 0.06) inset,
+      0 12px 40px oklch(58% 0.27 332 / 0.4);
   }
 
   .btn-primary:hover {
-    background-color: var(--color-mauve-800);
     transform: translateY(-1px);
-    box-shadow: var(--shadow-warm);
+    box-shadow: 0 0 0 1px oklch(100% 0 0 / 0.1) inset,
+      0 14px 50px oklch(58% 0.27 332 / 0.6),
+      0 0 80px oklch(72% 0.22 18 / 0.35);
   }
 
   .btn-ghost {
-    background-color: transparent;
+    background-color: oklch(100% 0 0 / 0.04);
     color: var(--color-ink);
-    border: 1px solid var(--color-mauve-200);
+    border: 1px solid var(--color-line);
+    backdrop-filter: blur(8px);
   }
 
   .btn-ghost:hover {
-    background-color: var(--color-blush-50);
+    background-color: oklch(100% 0 0 / 0.08);
     border-color: var(--color-mauve-300);
+    color: var(--color-mauve-700);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 24px oklch(66% 0.27 332 / 0.45),
+      0 0 48px oklch(72% 0.22 18 / 0.25);
+  }
+
+  .surface-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-line);
   }
 }
 
@@ -157,4 +185,73 @@
 }
 .delay-4 {
   animation-delay: 320ms;
+}
+
+/* ---- Cube animation keyframes (provided by spec) ---- */
+
+@keyframes left {
+  100% {
+    margin-left: -54000px;
+  }
+}
+
+@keyframes back {
+  100% {
+    margin-left: -54870px;
+  }
+}
+
+@keyframes right {
+  100% {
+    margin-left: -55740px;
+  }
+}
+
+@keyframes filter-animation {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(100deg);
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2.5);
+  }
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(3px);
+  }
+}
+
+@keyframes brightness {
+  0% {
+    filter: brightness(1) contrast(1);
+  }
+  100% {
+    filter: brightness(0.8) contrast(1.3);
+  }
+}
+
+@keyframes text-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px oklch(100% 0 0 / 0.2),
+      0 0 18px oklch(80% 0.18 332 / 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px oklch(100% 0 0 / 0.5),
+      0 0 40px oklch(80% 0.18 332 / 0.5);
+  }
 }

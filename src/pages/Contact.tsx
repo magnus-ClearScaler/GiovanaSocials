@@ -13,15 +13,22 @@ export function Contact() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blush-100 via-cream-50 to-cream-50" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-mauve-300/20 via-bg to-bg"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute -top-40 -left-32 -z-10 h-[500px] w-[500px] rounded-full bg-mauve-400/30 blur-3xl"
+        />
         <div className="container-page pt-20 md:pt-28 pb-12 md:pb-16">
           <div className="max-w-3xl fade-up">
-            <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
+            <p className="text-xs uppercase tracking-[0.28em] text-mauve-500 glow-text">
               Contact
             </p>
-            <h1 className="mt-5 text-5xl md:text-7xl leading-[1.05]">
+            <h1 className="mt-5 text-5xl md:text-7xl leading-[1.05] glow-text">
               Let&rsquo;s make something{" "}
-              <span className="italic font-light text-mauve-700">
+              <span className="italic font-light text-mauve-500">
                 worth scrolling for
               </span>
               .
@@ -36,18 +43,18 @@ export function Contact() {
 
       <section className="container-page pb-24 grid md:grid-cols-12 gap-10">
         <div className="md:col-span-7">
-          <div className="rounded-3xl border border-mauve-100 bg-cream-50 p-8 md:p-10 shadow-soft">
+          <div className="rounded-3xl border border-line bg-surface p-8 md:p-10 shadow-soft">
             {submitted ? (
               <div className="py-8 text-center">
-                <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
+                <p className="text-xs uppercase tracking-[0.22em] text-mauve-500">
                   Sent
                 </p>
                 <h2 className="mt-4 text-3xl md:text-4xl">
                   Thank you — message received.
                 </h2>
                 <p className="mt-4 text-ink-soft">
-                  Gio will be in touch shortly. In the meantime, feel free to
-                  follow along on Instagram.
+                  Gio will be in touch shortly. In the meantime, feel free
+                  to follow along on Instagram.
                 </p>
               </div>
             ) : (
@@ -100,7 +107,7 @@ export function Contact() {
 
         <aside className="md:col-span-5 space-y-6">
           <Placeholder
-            alt="Calm placeholder image of a desk with notebook, camera and a pink ceramic mug."
+            alt="Calm placeholder image of a desk with notebook, camera and ceramic mug under neon light."
             tone="blush"
             ratio="landscape"
             label="Studio desk"
@@ -123,14 +130,14 @@ export function Contact() {
             value="@giocontent"
             href="https://instagram.com"
           />
-          <div className="rounded-3xl bg-blush-50/70 border border-mauve-100 p-7">
-            <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
+          <div className="rounded-3xl bg-surface/70 border border-line p-7">
+            <p className="text-xs uppercase tracking-[0.22em] text-mauve-500">
               Working together
             </p>
             <p className="mt-3 text-ink-soft leading-relaxed">
-              I take on a small number of partners at a time. Most engagements
-              start with a 30-minute intro call to make sure we&rsquo;re a
-              fit before any proposal.
+              I take on a small number of partners at a time. Most
+              engagements start with a 30-minute intro call to make sure
+              we&rsquo;re a fit before any proposal.
             </p>
           </div>
         </aside>
@@ -159,7 +166,7 @@ function Field({
   options = [],
 }: FieldProps) {
   const base =
-    "mt-2 w-full rounded-2xl border border-mauve-100 bg-cream-50 px-4 py-3 text-ink placeholder:text-ink-muted/70 focus:outline-none focus:border-mauve-400 focus:ring-4 focus:ring-blush-100 transition";
+    "mt-2 w-full rounded-2xl border border-line bg-bg/60 px-4 py-3 text-ink placeholder:text-ink-muted/70 focus:outline-none focus:border-mauve-400 focus:ring-4 focus:ring-mauve-400/20 transition";
   return (
     <label className="block">
       <span className="text-sm text-ink-soft">{label}</span>
@@ -204,9 +211,9 @@ function ContactRow({ icon: Icon, label, value, href }: ContactRowProps) {
   return (
     <a
       href={href}
-      className="flex items-center gap-4 rounded-2xl border border-mauve-100 bg-cream-50 p-5 hover:border-mauve-300 hover:bg-blush-50/60 transition"
+      className="flex items-center gap-4 rounded-2xl border border-line bg-surface p-5 hover:border-mauve-300 hover:bg-surface-2 transition"
     >
-      <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-blush-100 text-mauve-700">
+      <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-mauve-300/15 text-mauve-500 border border-line">
         <Icon size={18} />
       </span>
       <span>

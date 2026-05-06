@@ -3,10 +3,10 @@ import { Link } from "react-router";
 export function NotFound() {
   return (
     <section className="container-page py-32 text-center">
-      <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
+      <p className="text-xs uppercase tracking-[0.28em] text-mauve-500 glow-text">
         404
       </p>
-      <h1 className="mt-4 text-5xl md:text-6xl leading-tight">
+      <h1 className="mt-4 text-5xl md:text-6xl leading-tight glow-text">
         This page wandered off.
       </h1>
       <p className="mt-5 text-ink-soft max-w-md mx-auto">

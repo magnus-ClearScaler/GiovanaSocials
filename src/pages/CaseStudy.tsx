@@ -14,25 +14,32 @@ export function CaseStudy() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blush-100 via-cream-50 to-cream-50" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-mauve-300/20 via-bg to-bg"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute -top-40 -right-32 -z-10 h-[500px] w-[500px] rounded-full bg-mauve-400/30 blur-3xl"
+        />
         <div className="container-page pt-16 md:pt-20 pb-10 md:pb-14 fade-up">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-sm text-ink-soft hover:text-mauve-700"
+            className="inline-flex items-center gap-2 text-sm text-ink-soft hover:text-mauve-500"
           >
             <ArrowLeft size={14} /> Back to all work
           </Link>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
+            <p className="text-xs uppercase tracking-[0.28em] text-mauve-500 glow-text">
               Case study
             </p>
             {study.status && (
-              <span className="text-[11px] uppercase tracking-[0.18em] text-mauve-700 bg-blush-100 px-2.5 py-1 rounded-full">
+              <span className="text-[11px] uppercase tracking-[0.18em] text-mauve-500 bg-mauve-300/10 border border-line px-2.5 py-1 rounded-full">
                 {study.status}
               </span>
             )}
           </div>
-          <h1 className="mt-4 text-5xl md:text-7xl leading-[1.04] max-w-4xl">
+          <h1 className="mt-4 text-5xl md:text-7xl leading-[1.04] max-w-4xl glow-text">
             {study.brand}
           </h1>
           <p className="mt-5 text-xl md:text-2xl text-ink-soft max-w-3xl leading-relaxed">
@@ -43,7 +50,7 @@ export function CaseStudy() {
               href={study.link}
               target="_blank"
               rel="noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-mauve-700 hover:text-mauve-800"
+              className="mt-6 inline-flex items-center gap-2 text-mauve-500 hover:text-mauve-400"
             >
               Visit site <ExternalLink size={14} />
             </a>
@@ -62,7 +69,7 @@ export function CaseStudy() {
 
       <section className="container-page py-20 md:py-28 grid md:grid-cols-12 gap-12">
         <div className="md:col-span-4">
-          <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
+          <p className="text-xs uppercase tracking-[0.22em] text-mauve-500">
             Services
           </p>
           <ul className="mt-4 space-y-2 text-lg">
@@ -80,25 +87,35 @@ export function CaseStudy() {
       </section>
 
       <section className="container-page pb-20 md:pb-28">
-        <div className="rounded-[2.5rem] bg-gradient-to-br from-blush-100 via-cream-100 to-mauve-100 p-10 md:p-16">
-          <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
-            The numbers
-          </p>
-          <div className="mt-8 grid sm:grid-cols-3 gap-8">
-            {study.metrics.map((m) => (
-              <div key={m.label}>
-                <p className="font-display text-5xl md:text-6xl text-ink leading-none">
-                  {m.value}
-                </p>
-                <p className="mt-3 text-ink-soft">{m.label}</p>
-              </div>
-            ))}
+        <div className="relative rounded-[2.5rem] overflow-hidden p-10 md:p-16 border border-line bg-surface">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-br from-mauve-400/25 via-mauve-300/10 to-blush-400/25"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute -top-40 -right-32 h-[420px] w-[420px] rounded-full bg-mauve-400/40 blur-3xl"
+          />
+          <div className="relative">
+            <p className="text-xs uppercase tracking-[0.28em] text-mauve-500 glow-text">
+              The numbers
+            </p>
+            <div className="mt-8 grid sm:grid-cols-3 gap-8">
+              {study.metrics.map((m) => (
+                <div key={m.label}>
+                  <p className="font-display text-5xl md:text-6xl text-ink leading-none glow-text">
+                    {m.value}
+                  </p>
+                  <p className="mt-3 text-ink-soft">{m.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section className="container-page pb-20">
-        <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
+        <p className="text-xs uppercase tracking-[0.22em] text-mauve-500">
           Selected visuals
         </p>
         <div className="mt-8 grid md:grid-cols-3 gap-6">
@@ -107,11 +124,7 @@ export function CaseStudy() {
               key={i}
               alt={alt}
               tone={
-                i === 0
-                  ? study.accent
-                  : i === 1
-                    ? "blush"
-                    : "cream"
+                i === 0 ? study.accent : i === 1 ? "blush" : "cream"
               }
               ratio={i === 1 ? "portrait" : "landscape"}
               label={`Visual ${i + 1}`}
@@ -121,10 +134,10 @@ export function CaseStudy() {
       </section>
 
       <section className="container-page pb-24">
-        <div className="rounded-[2.5rem] border border-mauve-100 p-10 md:p-14 bg-cream-50">
+        <div className="rounded-[2.5rem] border border-line p-10 md:p-14 bg-surface">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
+              <p className="text-xs uppercase tracking-[0.22em] text-mauve-500">
                 More work
               </p>
               <h2 className="mt-3 text-3xl md:text-4xl">
@@ -140,7 +153,7 @@ export function CaseStudy() {
               <Link
                 key={o.slug}
                 to={`/work/${o.slug}`}
-                className="group rounded-2xl overflow-hidden border border-mauve-100 bg-cream-50 hover:shadow-warm transition duration-300"
+                className="group rounded-2xl overflow-hidden border border-line bg-bg/60 hover:border-mauve-300 hover:shadow-warm transition duration-300"
               >
                 <Placeholder
                   alt={o.imageAlt}
