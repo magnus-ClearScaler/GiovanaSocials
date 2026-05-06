@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { ArrowRight, Camera, Sparkles, TrendingUp } from "lucide-react";
 import { Section } from "../components/Section";
 import { Placeholder } from "../components/Placeholder";
+import { HeroAnimation } from "../components/HeroAnimation";
 import { caseStudies } from "../data/caseStudies";
 
 export function Home() {
@@ -19,55 +20,26 @@ export function Home() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blush-100 via-cream-50 to-cream-50" />
-      <div className="absolute -top-40 -right-32 -z-10 h-[480px] w-[480px] rounded-full bg-mauve-200/50 blur-3xl" />
-      <div className="absolute -bottom-32 -left-24 -z-10 h-[420px] w-[420px] rounded-full bg-blush-200/50 blur-3xl" />
+    <section className="relative">
+      <HeroAnimation />
 
-      <div className="container-page pt-16 md:pt-24 pb-24 md:pb-32 grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-        <div className="md:col-span-7 fade-up">
+      <div className="container-page pt-2 pb-20 md:pb-28 -mt-10 md:-mt-16 relative z-10">
+        <div className="max-w-3xl fade-up">
           <p className="text-xs uppercase tracking-[0.24em] text-mauve-700">
             Content & social media studio
           </p>
-          <h1 className="mt-5 text-5xl sm:text-6xl md:text-7xl leading-[1.02]">
-            Content that{" "}
-            <span className="italic font-light text-mauve-700">resonates</span>
-            ,
-            <br /> social that{" "}
-            <span className="italic font-light text-blush-600">grows</span>.
-          </h1>
-          <p className="mt-7 text-lg md:text-xl text-ink-soft max-w-xl leading-relaxed">
+          <p className="mt-5 text-lg md:text-xl text-ink-soft leading-relaxed max-w-2xl">
             GioContent is a studio by Giovana Tonon — shooting and editing
-            content, and managing social media for brands that want to feel
-            unmistakably themselves.
+            content, and managing social media for brands that want to grow
+            without ever sounding like anyone else.
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link to="/contact" className="btn btn-primary">
               Start a project <ArrowRight size={16} />
             </Link>
             <Link to="/work/marzelle-sweets" className="btn btn-ghost">
               See the work
             </Link>
-          </div>
-        </div>
-
-        <div className="md:col-span-5 fade-up delay-2">
-          <div className="relative">
-            <Placeholder
-              alt="Portrait placeholder of Giovana Tonon, founder of GioContent, in soft warm light."
-              tone="mauve"
-              ratio="portrait"
-              label="Founder portrait"
-            />
-            <div className="absolute -bottom-6 -left-6 hidden md:block">
-              <Placeholder
-                alt="Behind-the-scenes placeholder showing a content shoot in progress."
-                tone="blush"
-                ratio="square"
-                label="On set"
-                className="w-40"
-              />
-            </div>
           </div>
         </div>
       </div>
