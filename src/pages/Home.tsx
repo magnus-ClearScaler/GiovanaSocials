@@ -2,9 +2,15 @@ import { Link } from "react-router";
 import { ArrowRight, ArrowUpRight, Camera, Sparkles, TrendingUp } from "lucide-react";
 import { Section } from "../components/Section";
 import { Placeholder } from "../components/Placeholder";
+import { PoemAnimation } from "../components/ui/3d-animation";
 import { caseStudies } from "../data/caseStudies";
 
-const HERO_IMAGE = "https://i.ibb.co/q3XSxR9W/20250831-120144.jpg";
+const HERO_POEM = `
+  <p>In the <span>static</span> of feeds, between the noise and the longing for attention, content that <span>resonates</span> blooms — each frame a heartbeat, each caption a quiet <span>confession</span>. The brand that <span>dares</span> to feel becomes the brand that <span>grows</span>. Hooks land not by accident but by intention; every reel is an invitation, every grid a <span>love</span> letter to the audience. Where most settle for visibility, we chase <span>resonance</span>. Where most chase trends, we make <span>presence</span>. Social media without limits is not louder — it is more <span>alive</span>. It is the camera held close enough to see the texture, the cut held long enough to feel the <span>breath</span>, the voice clear enough to be unmistakably <span>yours</span>. We move at the speed of <span>taste</span>, we ship at the rhythm of <span>belief</span>, and we <span>grow boundlessly</span> by daring to mean every word.</p>
+`;
+
+const HERO_BG = "https://i.ibb.co/q3XSxR9W/20250831-120144.jpg";
+const HERO_FG = "https://i.ibb.co/Y4FKvK38/20250831-113022.png";
 
 export function Home() {
   return (
@@ -22,74 +28,42 @@ export function Home() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      <div
-        aria-hidden="true"
-        className="absolute -top-32 -right-24 h-[460px] w-[460px] rounded-full bg-mauve-200/50 blur-3xl pointer-events-none"
+    <section className="relative">
+      <PoemAnimation
+        poemHTML={HERO_POEM}
+        backgroundImageUrl={HERO_BG}
+        boyImageUrl={HERO_FG}
       />
-      <div
-        aria-hidden="true"
-        className="absolute top-40 -left-24 h-[380px] w-[380px] rounded-full bg-blush-200/50 blur-3xl pointer-events-none"
-      />
-      <div className="container-page pt-16 md:pt-24 pb-20 md:pb-28 relative">
-        <div className="grid md:grid-cols-12 gap-10 md:gap-14 items-end">
-          <div className="md:col-span-7 fade-up">
-            <p className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-mauve-700">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-mauve-500" />
-              Content & social media studio · by Giovana Tonon
-            </p>
-            <h1 className="mt-6 text-5xl sm:text-6xl md:text-7xl leading-[1.02]">
-              Social media{" "}
-              <span className="italic font-light text-mauve-600">growth</span>{" "}
-              <br className="hidden md:block" />
-              without{" "}
-              <span className="italic font-light text-blush-600">limits</span>.
-            </h1>
-            <p className="mt-7 text-lg md:text-xl text-ink-soft leading-relaxed max-w-xl">
-              GioContent shoots, edits and runs social for brands that want to
-              stop blending in. Considered content. Compounding presence.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-3">
-              <Link to="/contact" className="btn btn-primary">
-                Start a project <ArrowRight size={16} />
-              </Link>
-              <Link to="/work/marzelle-sweets" className="btn btn-ghost">
-                See the work
-              </Link>
-            </div>
-          </div>
 
-          <div className="md:col-span-5 fade-up delay-2">
-            <div className="relative">
-              <div className="relative overflow-hidden rounded-[2rem] border border-line shadow-warm aspect-[4/5] bg-surface">
-                <img
-                  src={HERO_IMAGE}
-                  alt="Giovana on set, working on a content shoot."
-                  className="absolute inset-0 h-full w-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                  }}
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-ink/15 via-transparent to-transparent"
-                />
-              </div>
-              <div className="absolute -bottom-5 -left-5 hidden md:block rounded-2xl border border-line bg-cream-50 px-5 py-4 shadow-soft">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-ink-muted">
-                  Currently scaling
-                </p>
-                <p className="font-display italic text-xl text-mauve-700">
-                  ClearScaler
-                </p>
-              </div>
-              <div className="absolute -top-4 -right-4 hidden md:flex items-center gap-2 rounded-full border border-line bg-cream-50 px-4 py-2 shadow-soft">
-                <span className="inline-block h-2 w-2 rounded-full bg-mauve-500 animate-pulse" />
-                <span className="text-xs tracking-wide text-ink-soft">
-                  Booking Q2&nbsp;projects
-                </span>
-              </div>
-            </div>
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-2/3 z-10 bg-gradient-to-t from-black/70 via-black/35 to-transparent pointer-events-none"
+      />
+
+      <div className="absolute inset-x-0 bottom-0 z-20">
+        <div className="container-page pb-14 md:pb-20 fade-up">
+          <p className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-cream-100/90">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-mauve-300" />
+            Content & social media studio · by Giovana Tonon
+          </p>
+          <h1 className="mt-5 text-5xl sm:text-6xl md:text-7xl leading-[1.02] text-cream-50 max-w-3xl">
+            Social media{" "}
+            <span className="italic font-light text-mauve-300">growth</span>{" "}
+            <br className="hidden md:block" />
+            without{" "}
+            <span className="italic font-light text-blush-300">limits</span>.
+          </h1>
+          <p className="mt-6 text-lg md:text-xl text-cream-100/85 leading-relaxed max-w-2xl">
+            GioContent shoots, edits and runs social for brands that want to
+            stop blending in. Considered content. Compounding presence.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link to="/contact" className="btn btn-primary">
+              Start a project <ArrowRight size={16} />
+            </Link>
+            <Link to="/work/marzelle-sweets" className="btn btn-ghost">
+              See the work
+            </Link>
           </div>
         </div>
       </div>
