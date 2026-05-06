@@ -4,19 +4,14 @@ import { Instagram, Mail } from "lucide-react";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-32 border-t border-line bg-surface/40 relative overflow-hidden">
-      <div
-        aria-hidden="true"
-        className="absolute -top-40 left-1/2 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-mauve-300/20 blur-3xl pointer-events-none"
-      />
-      <div className="container-page py-16 grid gap-10 md:grid-cols-3 relative">
+    <footer className="mt-32 border-t border-line bg-surface/50">
+      <div className="container-page py-16 grid gap-10 md:grid-cols-3">
         <div>
           <Link
             to="/"
             className="font-display text-2xl tracking-tight text-ink"
           >
-            Gio
-            <span className="italic text-mauve-500 glow-text">Content</span>
+            Gio<span className="italic text-mauve-600">Content</span>
           </Link>
           <p className="mt-4 text-ink-muted text-sm leading-relaxed max-w-xs">
             A studio for content creation and social media management — by
@@ -32,7 +27,7 @@ export function Footer() {
             <li>
               <Link
                 to="/about"
-                className="text-ink-soft hover:text-mauve-500"
+                className="text-ink-soft hover:text-mauve-700"
               >
                 About
               </Link>
@@ -40,7 +35,7 @@ export function Footer() {
             <li>
               <Link
                 to="/work/marzelle-sweets"
-                className="text-ink-soft hover:text-mauve-500"
+                className="text-ink-soft hover:text-mauve-700"
               >
                 Work
               </Link>
@@ -48,7 +43,7 @@ export function Footer() {
             <li>
               <Link
                 to="/contact"
-                className="text-ink-soft hover:text-mauve-500"
+                className="text-ink-soft hover:text-mauve-700"
               >
                 Contact
               </Link>
@@ -64,7 +59,7 @@ export function Footer() {
             <li>
               <a
                 href="mailto:hello@giocontent.studio"
-                className="inline-flex items-center gap-2 text-ink-soft hover:text-mauve-500"
+                className="inline-flex items-center gap-2 text-ink-soft hover:text-mauve-700"
               >
                 <Mail size={14} /> hello@giocontent.studio
               </a>
@@ -74,7 +69,7 @@ export function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 text-ink-soft hover:text-mauve-500"
+                className="inline-flex items-center gap-2 text-ink-soft hover:text-mauve-700"
               >
                 <Instagram size={14} /> Instagram
               </a>
@@ -82,10 +77,10 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="container-page pb-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-ink-muted relative">
+      <div className="container-page pb-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-ink-muted">
         <p>© {year} GioContent. All rights reserved.</p>
         <p className="italic font-display">
-          Made after dark, in neon and ink.
+          Made with care, in cream and clay.
         </p>
       </div>
     </footer>

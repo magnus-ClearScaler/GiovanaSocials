@@ -29,7 +29,7 @@ export function Nav() {
     <header
       className={`sticky top-0 z-40 transition-colors duration-300 ${
         scrolled
-          ? "bg-bg/75 backdrop-blur-xl border-b border-line"
+          ? "bg-bg/85 backdrop-blur-xl border-b border-line"
           : "bg-transparent"
       }`}
     >
@@ -39,7 +39,7 @@ export function Nav() {
           className="font-display text-2xl tracking-tight text-ink"
           aria-label="GioContent — home"
         >
-          Gio<span className="italic text-mauve-500 glow-text">Content</span>
+          Gio<span className="italic text-mauve-600">Content</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -51,8 +51,8 @@ export function Nav() {
               className={({ isActive }) =>
                 `text-sm tracking-wide transition-colors ${
                   isActive
-                    ? "text-mauve-500"
-                    : "text-ink-soft hover:text-mauve-500"
+                    ? "text-mauve-700"
+                    : "text-ink-soft hover:text-mauve-700"
                 }`
               }
             >
@@ -66,7 +66,7 @@ export function Nav() {
 
         <button
           type="button"
-          className="md:hidden inline-flex items-center justify-center rounded-full border border-line p-2 text-ink bg-surface/40 backdrop-blur"
+          className="md:hidden inline-flex items-center justify-center rounded-full border border-line p-2 text-ink bg-cream-50"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -85,7 +85,7 @@ export function Nav() {
                 end={l.end}
                 className={({ isActive }) =>
                   `text-base ${
-                    isActive ? "text-mauve-500" : "text-ink-soft"
+                    isActive ? "text-mauve-700" : "text-ink-soft"
                   }`
                 }
               >
