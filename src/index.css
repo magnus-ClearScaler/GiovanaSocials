@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Playfair Display", ui-serif, Georgia, serif;
+
+  --color-cream-50: oklch(99% 0.012 85);
+  --color-cream-100: oklch(97.5% 0.018 80);
+  --color-cream-200: oklch(95% 0.025 78);
+
+  --color-blush-50: oklch(98% 0.012 18);
+  --color-blush-100: oklch(95% 0.025 20);
+  --color-blush-200: oklch(91% 0.045 18);
+  --color-blush-300: oklch(86% 0.07 17);
+  --color-blush-400: oklch(80% 0.1 15);
+  --color-blush-500: oklch(74% 0.13 12);
+  --color-blush-600: oklch(66% 0.15 10);
+  --color-blush-700: oklch(56% 0.14 8);
+
+  --color-mauve-50: oklch(97% 0.018 320);
+  --color-mauve-100: oklch(94% 0.03 322);
+  --color-mauve-200: oklch(89% 0.05 325);
+  --color-mauve-300: oklch(82% 0.08 328);
+  --color-mauve-400: oklch(74% 0.11 330);
+  --color-mauve-500: oklch(66% 0.13 332);
+  --color-mauve-600: oklch(56% 0.13 334);
+  --color-mauve-700: oklch(46% 0.11 335);
+  --color-mauve-800: oklch(34% 0.08 335);
+  --color-mauve-900: oklch(24% 0.05 335);
+
+  --color-ink: oklch(22% 0.03 330);
+  --color-ink-soft: oklch(38% 0.04 332);
+  --color-ink-muted: oklch(54% 0.04 332);
+
+  --shadow-soft: 0 1px 2px oklch(50% 0.05 330 / 0.04),
+    0 8px 24px oklch(50% 0.05 330 / 0.06);
+  --shadow-warm: 0 1px 2px oklch(50% 0.1 20 / 0.06),
+    0 12px 40px oklch(50% 0.1 20 / 0.08);
+
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream-50);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-blush-200);
+    color: var(--color-ink);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+    max-width: 72rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.4rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 220ms var(--ease-soft);
+  }
+
+  .btn-primary {
+    background-color: var(--color-mauve-700);
+    color: var(--color-cream-50);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-mauve-800);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-warm);
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--color-ink);
+    border: 1px solid var(--color-mauve-200);
+  }
+
+  .btn-ghost:hover {
+    background-color: var(--color-blush-50);
+    border-color: var(--color-mauve-300);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-up {
+  animation: fadeUp 720ms var(--ease-soft) both;
+}
+
+.fade-in {
+  animation: fadeIn 1s var(--ease-soft) both;
+}
+
+.delay-1 {
+  animation-delay: 80ms;
+}
+.delay-2 {
+  animation-delay: 160ms;
+}
+.delay-3 {
+  animation-delay: 240ms;
+}
+.delay-4 {
+  animation-delay: 320ms;
+}
