@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { ArrowRight, Camera, Sparkles, TrendingUp } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Camera, Sparkles, TrendingUp } from "lucide-react";
 import { Section } from "../components/Section";
 import { Placeholder } from "../components/Placeholder";
 import { PoemAnimation } from "../components/ui/3d-animation";
@@ -10,12 +10,12 @@ const HERO_POEM = `
 `;
 
 const HERO_BG = "https://i.ibb.co/q3XSxR9W/20250831-120144.jpg";
-const HERO_FG = "https://i.ibb.co/Y4FKvK38/20250831-113022.png";
 
 export function Home() {
   return (
     <>
       <Hero />
+      <Marquee />
       <AboutTeaser />
       <Expertise />
       <WorkPreview />
@@ -28,37 +28,45 @@ export function Home() {
 function Hero() {
   return (
     <section className="relative">
-      <PoemAnimation
-        poemHTML={HERO_POEM}
-        backgroundImageUrl={HERO_BG}
-        boyImageUrl={HERO_FG}
-      />
+      <PoemAnimation poemHTML={HERO_POEM} backgroundImageUrl={HERO_BG} />
 
-      <div className="container-page pt-12 pb-20 md:pb-28 -mt-24 md:-mt-32 relative z-10">
-        <div className="max-w-3xl fade-up">
-          <p className="text-xs uppercase tracking-[0.28em] text-mauve-500 glow-text">
-            Content & social media studio · by Giovana Tonon
-          </p>
-          <h1 className="mt-5 text-5xl sm:text-6xl md:text-7xl leading-[1.02] glow-text">
-            Social media{" "}
-            <span className="italic font-light text-mauve-500">growth</span>{" "}
-            <br className="hidden md:block" />
-            without{" "}
-            <span className="italic font-light text-blush-400">limits</span>.
-          </h1>
-          <p className="mt-7 text-lg md:text-xl text-ink-soft leading-relaxed max-w-2xl">
-            GioContent shoots, edits and runs social for brands that want to
-            stop blending in. Considered content. Compounding presence.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-3">
-            <Link to="/contact" className="btn btn-primary">
-              Start a project <ArrowRight size={16} />
-            </Link>
-            <Link to="/work/marzelle-sweets" className="btn btn-ghost">
-              See the work
-            </Link>
-          </div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-center">
+        <div className="pointer-events-auto container-page pb-8 md:pb-12 flex flex-wrap items-center justify-center gap-3 fade-up">
+          <Link to="/contact" className="btn btn-primary">
+            Start a project <ArrowRight size={16} />
+          </Link>
+          <Link to="/work/marzelle-sweets" className="btn btn-ghost">
+            See the work
+          </Link>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function Marquee() {
+  const items = [
+    "MarzelleSweets",
+    "ClearCruit",
+    "Amr Arquitectura",
+    "ClearScaler",
+    "Founder-led brands",
+    "Studios & ateliers",
+  ];
+  return (
+    <section className="border-y border-line bg-surface/60">
+      <div className="container-page py-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-ink-muted">
+        <span className="text-xs uppercase tracking-[0.24em] text-mauve-700">
+          Trusted by
+        </span>
+        {items.map((it) => (
+          <span
+            key={it}
+            className="font-display text-lg md:text-xl text-ink/80 italic"
+          >
+            {it}
+          </span>
+        ))}
       </div>
     </section>
   );
@@ -71,7 +79,7 @@ function AboutTeaser() {
       title={
         <>
           A studio built on{" "}
-          <span className="italic text-mauve-500">taste</span> and a sharp eye
+          <span className="italic text-mauve-600">taste</span> and a sharp eye
           for what works on social.
         </>
       }
@@ -91,14 +99,14 @@ function AboutTeaser() {
           </p>
           <Link
             to="/about"
-            className="inline-flex items-center gap-2 text-mauve-500 hover:text-mauve-400 font-medium"
+            className="inline-flex items-center gap-2 text-mauve-700 hover:text-mauve-600 font-medium"
           >
             Read Gio&apos;s story <ArrowRight size={16} />
           </Link>
         </div>
         <div className="md:col-span-5">
           <Placeholder
-            alt="Editorial placeholder image — moody flat lay of brand props in neon light."
+            alt="Editorial flat lay of brand props on a soft cream surface."
             tone="cream"
             ratio="landscape"
             label="Studio flat lay"
@@ -133,19 +141,18 @@ function Expertise() {
       eyebrow="Expertise"
       title="What we do best."
       lede="Two specialties — backed by content production that moves at the speed of social."
-      className="bg-surface/40 rounded-[3rem] mx-3 md:mx-8 border border-line"
+      className="bg-surface/70 rounded-[3rem] mx-3 md:mx-8 border border-line"
     >
       <div className="grid md:grid-cols-3 gap-6">
-        {items.map((it) => (
+        {items.map((it, i) => (
           <article
             key={it.title}
-            className="group relative rounded-3xl bg-surface border border-line p-8 shadow-soft transition hover:-translate-y-1 hover:border-mauve-300 duration-300 overflow-hidden"
+            className="group relative rounded-3xl bg-cream-50 border border-line p-8 shadow-soft transition hover:-translate-y-1 hover:border-mauve-300 hover:shadow-warm duration-300 overflow-hidden"
           >
-            <div
-              aria-hidden="true"
-              className="absolute -top-20 -right-20 h-48 w-48 rounded-full bg-mauve-400/15 blur-3xl group-hover:bg-mauve-400/30 transition-all duration-500"
-            />
-            <div className="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-mauve-300/15 text-mauve-500 border border-line">
+            <span className="absolute top-6 right-6 text-xs tabular-nums text-ink-muted">
+              0{i + 1}
+            </span>
+            <div className="inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-mauve-100 text-mauve-700 border border-mauve-200">
               <it.icon size={20} />
             </div>
             <h3 className="mt-6 text-2xl">{it.title}</h3>
@@ -169,7 +176,7 @@ function WorkPreview() {
           <Link
             key={c.slug}
             to={`/work/${c.slug}`}
-            className="group rounded-3xl overflow-hidden border border-line bg-surface shadow-soft transition hover:shadow-warm hover:-translate-y-1 hover:border-mauve-300 duration-300"
+            className="group rounded-3xl overflow-hidden border border-line bg-cream-50 shadow-soft transition hover:shadow-warm hover:-translate-y-1 hover:border-mauve-300 duration-300"
           >
             <Placeholder
               alt={c.imageAlt}
@@ -181,14 +188,14 @@ function WorkPreview() {
               <div className="flex items-center justify-between gap-4">
                 <h3 className="text-2xl">{c.brand}</h3>
                 {c.status && (
-                  <span className="text-[11px] uppercase tracking-[0.18em] text-mauve-500 bg-mauve-300/10 border border-line px-2.5 py-1 rounded-full">
+                  <span className="text-[11px] uppercase tracking-[0.18em] text-mauve-700 bg-mauve-100 border border-mauve-200 px-2.5 py-1 rounded-full">
                     {c.status}
                   </span>
                 )}
               </div>
               <p className="mt-2 text-ink-soft">{c.tagline}</p>
-              <span className="mt-5 inline-flex items-center gap-2 text-mauve-500 font-medium group-hover:gap-3 transition-all">
-                View case study <ArrowRight size={16} />
+              <span className="mt-5 inline-flex items-center gap-2 text-mauve-700 font-medium group-hover:gap-3 transition-all">
+                View case study <ArrowUpRight size={16} />
               </span>
             </div>
           </Link>
@@ -204,23 +211,23 @@ function CTA() {
       <div className="relative rounded-[2.5rem] overflow-hidden p-10 md:p-16 text-center border border-line bg-surface">
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-br from-mauve-400/25 via-mauve-300/15 to-blush-400/25"
+          className="absolute inset-0 bg-gradient-to-br from-mauve-100/80 via-cream-100 to-blush-100/80"
         />
         <div
           aria-hidden="true"
-          className="absolute -top-40 -left-32 h-[420px] w-[420px] rounded-full bg-mauve-400/40 blur-3xl"
+          className="absolute -top-32 -left-24 h-[360px] w-[360px] rounded-full bg-mauve-200/60 blur-3xl"
         />
         <div
           aria-hidden="true"
-          className="absolute -bottom-40 -right-32 h-[420px] w-[420px] rounded-full bg-blush-400/40 blur-3xl"
+          className="absolute -bottom-32 -right-24 h-[360px] w-[360px] rounded-full bg-blush-200/60 blur-3xl"
         />
         <div className="relative">
-          <p className="text-xs uppercase tracking-[0.28em] text-mauve-500 glow-text">
+          <p className="text-xs uppercase tracking-[0.28em] text-mauve-700">
             Let&apos;s create
           </p>
-          <h2 className="mt-4 text-4xl md:text-6xl leading-tight glow-text">
+          <h2 className="mt-4 text-4xl md:text-6xl leading-tight">
             Ready for content that feels{" "}
-            <span className="italic text-mauve-500">unmistakably yours</span>?
+            <span className="italic text-mauve-600">unmistakably yours</span>?
           </h2>
           <p className="mt-5 text-ink-soft max-w-2xl mx-auto text-lg">
             Whether you&rsquo;re launching, scaling, or simply tired of
@@ -239,12 +246,12 @@ function CTA() {
 function ContactStrip() {
   return (
     <section className="container-page pb-16">
-      <div className="rounded-3xl border border-line p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-surface">
+      <div className="rounded-3xl border border-line p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-cream-50 shadow-soft">
         <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-mauve-500">
+          <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
             Contact
           </p>
-          <p className="mt-2 font-display text-2xl glow-text">
+          <p className="mt-2 font-display text-2xl text-ink">
             hello@giocontent.studio
           </p>
         </div>

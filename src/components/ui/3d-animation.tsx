@@ -4,23 +4,23 @@ import "./3d-animation.css";
 export type PoemAnimationProps = {
   poemHTML: string;
   backgroundImageUrl: string;
-  boyImageUrl: string;
 };
 
 export const PoemAnimation = ({
   poemHTML,
   backgroundImageUrl,
-  boyImageUrl,
 }: PoemAnimationProps) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function adjustContentSize() {
       if (contentRef.current) {
-        const viewportWidth = window.innerWidth;
-        const baseWidth = 1000;
-        const scaleFactor =
-          viewportWidth < baseWidth ? (viewportWidth / baseWidth) * 0.9 : 1;
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const baseW = 1000;
+        const baseH = 562;
+        // Cover the viewport — scale so the cube's bounding box fills both axes.
+        const scaleFactor = Math.max(vw / baseW, vh / baseH);
         contentRef.current.style.transform = `scale(${scaleFactor})`;
       }
     }
@@ -48,14 +48,6 @@ export const PoemAnimation = ({
               className="backgroundImage"
               src={backgroundImageUrl}
               alt="A neon-lit room at night"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-            />
-            <img
-              className="boyImage"
-              src={boyImageUrl}
-              alt="Two silhouettes against the neon"
               onError={(e) => {
                 e.currentTarget.style.display = "none";
               }}

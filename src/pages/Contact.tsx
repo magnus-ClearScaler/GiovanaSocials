@@ -15,20 +15,20 @@ export function Contact() {
       <section className="relative overflow-hidden">
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-gradient-to-b from-mauve-300/20 via-bg to-bg"
+          className="absolute -top-32 -left-24 -z-10 h-[460px] w-[460px] rounded-full bg-mauve-200/55 blur-3xl"
         />
         <div
           aria-hidden="true"
-          className="absolute -top-40 -left-32 -z-10 h-[500px] w-[500px] rounded-full bg-mauve-400/30 blur-3xl"
+          className="absolute -top-10 -right-24 -z-10 h-[380px] w-[380px] rounded-full bg-blush-200/50 blur-3xl"
         />
         <div className="container-page pt-20 md:pt-28 pb-12 md:pb-16">
           <div className="max-w-3xl fade-up">
-            <p className="text-xs uppercase tracking-[0.28em] text-mauve-500 glow-text">
+            <p className="text-xs uppercase tracking-[0.28em] text-mauve-700">
               Contact
             </p>
-            <h1 className="mt-5 text-5xl md:text-7xl leading-[1.05] glow-text">
+            <h1 className="mt-5 text-5xl md:text-7xl leading-[1.05]">
               Let&rsquo;s make something{" "}
-              <span className="italic font-light text-mauve-500">
+              <span className="italic font-light text-mauve-600">
                 worth scrolling for
               </span>
               .
@@ -43,10 +43,10 @@ export function Contact() {
 
       <section className="container-page pb-24 grid md:grid-cols-12 gap-10">
         <div className="md:col-span-7">
-          <div className="rounded-3xl border border-line bg-surface p-8 md:p-10 shadow-soft">
+          <div className="rounded-3xl border border-line bg-cream-50 p-8 md:p-10 shadow-soft">
             {submitted ? (
               <div className="py-8 text-center">
-                <p className="text-xs uppercase tracking-[0.22em] text-mauve-500">
+                <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
                   Sent
                 </p>
                 <h2 className="mt-4 text-3xl md:text-4xl">
@@ -107,7 +107,7 @@ export function Contact() {
 
         <aside className="md:col-span-5 space-y-6">
           <Placeholder
-            alt="Calm placeholder image of a desk with notebook, camera and ceramic mug under neon light."
+            alt="Calm desk with notebook, camera and ceramic mug in soft daylight."
             tone="blush"
             ratio="landscape"
             label="Studio desk"
@@ -131,7 +131,7 @@ export function Contact() {
             href="https://instagram.com"
           />
           <div className="rounded-3xl bg-surface/70 border border-line p-7">
-            <p className="text-xs uppercase tracking-[0.22em] text-mauve-500">
+            <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
               Working together
             </p>
             <p className="mt-3 text-ink-soft leading-relaxed">
@@ -166,7 +166,7 @@ function Field({
   options = [],
 }: FieldProps) {
   const base =
-    "mt-2 w-full rounded-2xl border border-line bg-bg/60 px-4 py-3 text-ink placeholder:text-ink-muted/70 focus:outline-none focus:border-mauve-400 focus:ring-4 focus:ring-mauve-400/20 transition";
+    "mt-2 w-full rounded-2xl border border-line bg-cream-50 px-4 py-3 text-ink placeholder:text-ink-muted/70 focus:outline-none focus:border-mauve-500 focus:ring-4 focus:ring-mauve-200/50 transition";
   return (
     <label className="block">
       <span className="text-sm text-ink-soft">{label}</span>
@@ -211,9 +211,9 @@ function ContactRow({ icon: Icon, label, value, href }: ContactRowProps) {
   return (
     <a
       href={href}
-      className="flex items-center gap-4 rounded-2xl border border-line bg-surface p-5 hover:border-mauve-300 hover:bg-surface-2 transition"
+      className="flex items-center gap-4 rounded-2xl border border-line bg-cream-50 p-5 hover:border-mauve-300 hover:bg-surface transition"
     >
-      <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-mauve-300/15 text-mauve-500 border border-line">
+      <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-mauve-100 text-mauve-700 border border-mauve-200">
         <Icon size={18} />
       </span>
       <span>

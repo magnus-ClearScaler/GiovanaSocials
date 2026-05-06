@@ -2,9 +2,83 @@
    names (.container, .face, .cube …) do not leak into the rest of the
    site.  Pairs with /components/ui/3d-animation.tsx. */
 
+/* Keyframes used by the cube + ambient layers. Kept here so the animation
+   stays self-contained — they are global by spec. */
+
+@keyframes hero-left {
+  100% {
+    margin-left: -54000px;
+  }
+}
+
+@keyframes hero-back {
+  100% {
+    margin-left: -54870px;
+  }
+}
+
+@keyframes hero-right {
+  100% {
+    margin-left: -55740px;
+  }
+}
+
+@keyframes hero-filter {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(100deg);
+  }
+}
+
+@keyframes hero-zoom-in {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.25);
+  }
+}
+
+@keyframes hero-blur {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(3px);
+  }
+}
+
+@keyframes hero-brightness {
+  0% {
+    filter: brightness(1) contrast(1);
+  }
+  100% {
+    filter: brightness(0.85) contrast(1.2);
+  }
+}
+
+@keyframes hero-text-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px oklch(100% 0 0 / 0.2),
+      0 0 18px oklch(80% 0.18 332 / 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px oklch(100% 0 0 / 0.5),
+      0 0 40px oklch(80% 0.18 332 / 0.5);
+  }
+}
+
 .hero-section {
   position: relative;
-  width: 100%;
+  width: 100vw;
+  /* Fill the full viewport — fall back to vh, prefer svh on mobile. */
+  height: 100vh;
+  height: 100svh;
+  min-height: 600px;
   background: oklch(8% 0.03 332);
   overflow: hidden;
   isolation: isolate;
@@ -13,6 +87,7 @@
 
 .hero-section .container {
   width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,9 +115,9 @@
   object-fit: cover;
   z-index: 0;
   animation:
-    zoom-in 18s ease-in-out infinite alternate,
-    brightness 6s ease-in-out infinite alternate,
-    blur 10s ease-in-out infinite alternate;
+    hero-zoom-in 36s ease-in-out infinite alternate,
+    hero-brightness 14s ease-in-out infinite alternate,
+    hero-blur 22s ease-in-out infinite alternate;
 }
 
 .hero-section .boyImage {
@@ -63,7 +138,7 @@
     linear-gradient(180deg, oklch(40% 0.22 332 / 0.18), oklch(8% 0.05 332 / 0.55));
   mix-blend-mode: screen;
   z-index: 5;
-  animation: filter-animation 10s ease-in-out infinite;
+  animation: hero-filter 24s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -183,19 +258,20 @@
   font-style: italic;
   color: oklch(86% 0.13 18);
   font-weight: 300;
-  animation: text-glow 4s ease-in-out infinite;
+  animation: hero-text-glow 8s ease-in-out infinite;
 }
 
+/* Slowed ~4× from the original 88–92s for a calmer, readable scroll. */
 .hero-section .face.left p {
-  animation: left 90s linear infinite;
+  animation: hero-left 200s linear infinite;
 }
 
 .hero-section .face.right p {
-  animation: right 92s linear infinite;
+  animation: hero-right 204s linear infinite;
 }
 
 .hero-section .face.back p {
-  animation: back 88s linear infinite;
+  animation: hero-back 196s linear infinite;
   font-size: 5.2rem;
 }
 

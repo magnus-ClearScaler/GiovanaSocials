@@ -24,7 +24,7 @@ export function Section({
         {(eyebrow || title || lede) && (
           <div className={`max-w-3xl ${alignClass}`}>
             {eyebrow && (
-              <p className="text-xs uppercase tracking-[0.22em] text-mauve-700">
+              <p className="text-xs uppercase tracking-[0.22em] text-mauve-700 inline-flex items-center gap-2 before:content-[''] before:inline-block before:h-px before:w-6 before:bg-mauve-400">
                 {eyebrow}
               </p>
             )}
