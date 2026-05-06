@@ -4,13 +4,11 @@ import "./3d-animation.css";
 export type PoemAnimationProps = {
   poemHTML: string;
   backgroundImageUrl: string;
-  boyImageUrl: string;
 };
 
 export const PoemAnimation = ({
   poemHTML,
   backgroundImageUrl,
-  boyImageUrl,
 }: PoemAnimationProps) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -50,14 +48,6 @@ export const PoemAnimation = ({
               className="backgroundImage"
               src={backgroundImageUrl}
               alt="A neon-lit room at night"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-            />
-            <img
-              className="boyImage"
-              src={boyImageUrl}
-              alt="Two silhouettes against the neon"
               onError={(e) => {
                 e.currentTarget.style.display = "none";
               }}

@@ -10,7 +10,6 @@ const HERO_POEM = `
 `;
 
 const HERO_BG = "https://i.ibb.co/q3XSxR9W/20250831-120144.jpg";
-const HERO_FG = "https://i.ibb.co/Y4FKvK38/20250831-113022.png";
 
 export function Home() {
   return (
@@ -29,42 +28,16 @@ export function Home() {
 function Hero() {
   return (
     <section className="relative">
-      <PoemAnimation
-        poemHTML={HERO_POEM}
-        backgroundImageUrl={HERO_BG}
-        boyImageUrl={HERO_FG}
-      />
+      <PoemAnimation poemHTML={HERO_POEM} backgroundImageUrl={HERO_BG} />
 
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 h-2/3 z-10 bg-gradient-to-t from-black/70 via-black/35 to-transparent pointer-events-none"
-      />
-
-      <div className="absolute inset-x-0 bottom-0 z-20">
-        <div className="container-page pb-14 md:pb-20 fade-up">
-          <p className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-cream-100/90">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-mauve-300" />
-            Content & social media studio · by Giovana Tonon
-          </p>
-          <h1 className="mt-5 text-5xl sm:text-6xl md:text-7xl leading-[1.02] text-cream-50 max-w-3xl">
-            Social media{" "}
-            <span className="italic font-light text-mauve-300">growth</span>{" "}
-            <br className="hidden md:block" />
-            without{" "}
-            <span className="italic font-light text-blush-300">limits</span>.
-          </h1>
-          <p className="mt-6 text-lg md:text-xl text-cream-100/85 leading-relaxed max-w-2xl">
-            GioContent shoots, edits and runs social for brands that want to
-            stop blending in. Considered content. Compounding presence.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link to="/contact" className="btn btn-primary">
-              Start a project <ArrowRight size={16} />
-            </Link>
-            <Link to="/work/marzelle-sweets" className="btn btn-ghost">
-              See the work
-            </Link>
-          </div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-center">
+        <div className="pointer-events-auto container-page pb-8 md:pb-12 flex flex-wrap items-center justify-center gap-3 fade-up">
+          <Link to="/contact" className="btn btn-primary">
+            Start a project <ArrowRight size={16} />
+          </Link>
+          <Link to="/work/marzelle-sweets" className="btn btn-ghost">
+            See the work
+          </Link>
         </div>
       </div>
     </section>

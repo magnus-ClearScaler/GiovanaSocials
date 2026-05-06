@@ -193,15 +193,15 @@
 
 /* Slowed ~4× from the original 88–92s for a calmer, readable scroll. */
 .hero-section .face.left p {
-  animation: left 360s linear infinite;
+  animation: left 200s linear infinite;
 }
 
 .hero-section .face.right p {
-  animation: right 368s linear infinite;
+  animation: right 204s linear infinite;
 }
 
 .hero-section .face.back p {
-  animation: back 352s linear infinite;
+  animation: back 196s linear infinite;
   font-size: 5.2rem;
 }
 
